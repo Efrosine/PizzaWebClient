@@ -140,7 +140,9 @@ $userRole = isset($user['role']) ? $user['role'] : 'N/A';
         <!-- Menampilkan Menu dalam Bentuk Card -->
         <div class="row">
             <?php if (!empty($menu)): ?>
-                <?php foreach ($menu as $item): ?>
+                <?php foreach ($menu as $item):
+                    $category = $item['category'];
+                    ?>
                     <div class="col-md-4 mb-4">
                         <div class="card">
                             <img src="<?php echo $item['image_url']; ?>" class="card-img-top"
@@ -148,6 +150,7 @@ $userRole = isset($user['role']) ? $user['role'] : 'N/A';
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $item['name']; ?></h5>
                                 <p class="card-text"><?php echo $item['description']; ?></p>
+                                <p class="card-text"><?php echo $category['name']; ?></p>
                                 <p class="card-text"><strong>Rp
                                         <?php echo number_format($item['price'], 0, ',', '.'); ?></strong></p>
                                 <button class="btn btn-primary w-100"

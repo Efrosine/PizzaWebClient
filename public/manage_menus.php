@@ -91,6 +91,7 @@ if ($response) {
                     <th>ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Category</th>
                     <th>Price</th>
                     <th>Image</th>
                     <th>Actions</th>
@@ -98,11 +99,14 @@ if ($response) {
             </thead>
             <tbody>
                 <?php if (!empty($menus)): ?>
-                    <?php foreach ($menus as $menu): ?>
+                    <?php foreach ($menus as $menu):
+                        $category = $menu['category'];
+                        ?>
                         <tr>
                             <td><?php echo $menu['id']; ?></td>
                             <td><?php echo $menu['name']; ?></td>
                             <td><?php echo $menu['description']; ?></td>
+                            <td><?php echo $category['name']; ?></td>
                             <td>Rp <?php echo number_format($menu['price'], 0, ',', '.'); ?></td>
                             <td><img src="<?php echo $menu['image_url']; ?>" alt="<?php echo $menu['name']; ?>" width="50"></td>
                             <td>
